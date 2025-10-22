@@ -14,7 +14,7 @@ public class CollectOnMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position != Vector3.zero)
+        if (transform.position.x > -5.88)
         {
             Destroy(gameObject);
         }
