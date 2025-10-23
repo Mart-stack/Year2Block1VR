@@ -22,15 +22,11 @@ public class TurnOnOxygenMeter : MonoBehaviour
         }
 
         
-
-        //else if (playerDeathScript.playerDeath == 1)
-        //{
-        //    oxygenMeter.SetActive(false);
-        //}
-
         if (transform.position.z > 72)
         {
             SceneManager.LoadScene(0);
+            Debug.Log("arrived");
+
         }
 
 

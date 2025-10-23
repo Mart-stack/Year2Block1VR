@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
 using JetBrains.Annotations;
 //using UnityEngine.SceneManagement;
@@ -18,6 +19,7 @@ public class breathMeterScript : MonoBehaviour
     private GameObject watchSec;
 
     public GameObject respawnPos;
+    public GameObject checkPoint;
 
     //public int playerDeath = 0;
 
@@ -36,7 +38,20 @@ public class breathMeterScript : MonoBehaviour
         StartTimer();
     }
 
+    private void Update()
+    {
+        if (playerLocation.transform.position.z >= checkPoint.transform.position.z)
+        {
+            Debug.Log("worked");
+            SceneManager.LoadScene(0);
+        }
+        else if(respawnPos.transform.position.z >= checkPoint.transform.position.z)
+        {
+            Debug.Log("alternative");
+            SceneManager.LoadScene(0);
 
+        }
+    }
 
 
     private void StartTimer()

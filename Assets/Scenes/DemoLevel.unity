@@ -196,6 +196,22 @@ PrefabInstance:
       value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 2538365052372174201, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
+      propertyPath: watchSec
+      value: 
+      objectReference: {fileID: 40505267}
+    - target: {fileID: 2538365052372174201, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
+      propertyPath: stopTimer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2538365052372174201, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
+      propertyPath: checkPoint
+      value: 
+      objectReference: {fileID: 371685313}
+    - target: {fileID: 2538365052372174201, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
+      propertyPath: respawnPos
+      value: 
+      objectReference: {fileID: 1000062552}
+    - target: {fileID: 2538365052372174201, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
       propertyPath: playerLocation
       value: 
       objectReference: {fileID: 1079688364}
@@ -7276,6 +7292,37 @@ MonoBehaviour:
     _installationVariants:
     - _memberName: variant
       _value: '{"value__":1}'
+--- !u!1 &371685313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 371685314}
+  m_Layer: 0
+  m_Name: CheckPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &371685314
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371685313}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.39822, y: -0, z: 70.54}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &383616675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7358,8 +7405,12 @@ PrefabInstance:
       objectReference: {fileID: 19952813}
     - target: {fileID: 2538365052372174201, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
       propertyPath: maxOxygen
-      value: 60
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2538365052372174201, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
+      propertyPath: checkPoint
+      value: 
+      objectReference: {fileID: 371685313}
     - target: {fileID: 2538365052372174201, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
       propertyPath: respawnPos
       value: 
@@ -14104,3 +14155,4 @@ SceneRoots:
   - {fileID: 937804336}
   - {fileID: 1769867456}
   - {fileID: 1000062553}
+  - {fileID: 371685314}
