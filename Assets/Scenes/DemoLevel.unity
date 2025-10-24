@@ -8030,6 +8030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444baa722ea5d3348988c6a3e5d22573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RespawnCenterBrick
+  rb: {fileID: 511641400}
   respawnBrickCent: {fileID: 1501539264}
   checkBrickHeight: {fileID: 379919257}
 --- !u!1 &522198038
@@ -10615,6 +10616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RespawnLeftBrick
   respawnBrickLeft: {fileID: 1661975908}
   checkBrickHeight: {fileID: 379919257}
+  leftRb: {fileID: 1251296616}
 --- !u!1 &1254252463
 GameObject:
   m_ObjectHideFlags: 0
@@ -14337,6 +14339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RespawnRightBrick
   respawnBrickRight: {fileID: 1801223051}
   checkBrickHeight: {fileID: 379919257}
+  rightRb: {fileID: 2083388814}
 --- !u!1 &2124565523
 GameObject:
   m_ObjectHideFlags: 0
