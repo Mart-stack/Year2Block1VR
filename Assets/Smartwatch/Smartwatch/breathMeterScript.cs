@@ -27,6 +27,9 @@ public class breathMeterScript : MonoBehaviour
     private float currentOxygen;
     public bool stopTimer = false;
 
+    private int colCount = 0;
+    private bool startNextTimer = false;
+    private bool startTimerThree = false;
     public TextMeshProUGUI o2PercentageText;
     public Image coloredCircle;
 
@@ -36,6 +39,7 @@ public class breathMeterScript : MonoBehaviour
         currentOxygen = maxOxygen;
         UpdateWatch();
         StartTimer();
+
     }
 
     private void Update()
@@ -50,6 +54,16 @@ public class breathMeterScript : MonoBehaviour
             Debug.Log("alternative");
             SceneManager.LoadScene(0);
 
+        }
+        EnemyCollision();
+
+        if (startNextTimer)
+        {
+            StartCoroutine(EnemySecondColl());
+        }
+        if (startTimerThree)
+        {
+            StartCoroutine(EnemyThirdColl());
         }
     }
 
@@ -83,26 +97,102 @@ public class breathMeterScript : MonoBehaviour
        
     }
 
-    private void OnCollisionEnter(Collision other)
+
+    private void EnemyCollision()
     {
-        if (other.gameObject.tag == "Enemy")
+        if (colCount >= 1)
         {
-            currentOxygen = currentOxygen - 12f;
-            Debug.Log("Collided");
+            startNextTimer = true;
+            return;
         }
+
+
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f);
+            foreach (var hitCollider in hitColliders)
+            {
+                if (hitCollider.CompareTag("Enemy"))
+                {
+                    currentOxygen = currentOxygen - 20f;
+                    Debug.Log("collided");
+                    colCount += 1;
+                }
+            }
+        
+        
+    }
+
+    IEnumerator EnemySecondColl()
+    {
+
+        yield return new WaitForSeconds(3.0f);
+        EnemyCollisionSecond();
+
+    }
+
+    IEnumerator EnemyThirdColl()
+    {
+        yield return new WaitForSeconds(3.0f);
+        EnemyCollisionThird();
 
     }
 
 
-    private void OnTriggerEnter(Collider other)
+
+    private void EnemyCollisionSecond()
     {
-        if (other.CompareTag("Enemy"))
+        if (colCount >= 2)
         {
-            currentOxygen = currentOxygen - 12f;
-            Debug.Log("collided");
+            startTimerThree = true;
+            return;
         }
+
+
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f);
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag("Enemy"))
+            {
+                currentOxygen = currentOxygen - 20f;
+                Debug.Log("collided");
+                colCount += 1;
+            }
+        }
+
+
     }
 
+    private void EnemyCollisionThird()
+    {
+        if (colCount >= 3)
+        {
+            return;
+        }
+
+
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f);
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag("Enemy"))
+            {
+                currentOxygen = currentOxygen - 20f;
+                Debug.Log("collided");
+                colCount += 1;
+            }
+        }
+
+
+    }
+
+
+
+    private void OnDrawGizmos()
+    {
+        // Draw wire sphere outline.
+        Gizmos.color = Color.darkBlue;
+        Gizmos.DrawWireSphere(transform.position, 1f);
+
+        
+    }
 
 
     IEnumerator StartBreathHold()
