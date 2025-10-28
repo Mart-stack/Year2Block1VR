@@ -22,7 +22,7 @@ public class TurnOnOxygenMeter : MonoBehaviour
         }
 
         
-        if (transform.position.z > 72)
+        if (transform.position.x > 56)
         {
             SceneManager.LoadScene(0);
             Debug.Log("arrived");
