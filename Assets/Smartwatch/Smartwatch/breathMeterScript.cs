@@ -44,12 +44,12 @@ public class breathMeterScript : MonoBehaviour
 
     private void Update()
     {
-        if (playerLocation.transform.position.z >= checkPoint.transform.position.z)
+        if (playerLocation.transform.position.x >= checkPoint.transform.position.x)
         {
             Debug.Log("worked");
             SceneManager.LoadScene(0);
         }
-        else if(respawnPos.transform.position.z >= checkPoint.transform.position.z)
+        else if(respawnPos.transform.position.x >= checkPoint.transform.position.x)
         {
             Debug.Log("alternative");
             SceneManager.LoadScene(0);

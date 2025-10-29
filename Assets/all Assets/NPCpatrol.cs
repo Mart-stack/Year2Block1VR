@@ -10,8 +10,8 @@ public class NPCPatrol : MonoBehaviour
     [Header("Detection Settings")]
     public float detectRadius = 8f;
     [Range(0, 180)] public float viewAngle = 60f;
-    public LayerMask obstructionMask; 
-    public LayerMask playerMask;      
+    public LayerMask obstructionMask;
+    public LayerMask playerMask;
     public string playerTag = "Player";
     public float spotCooldown = 0.2f;
     public float lostSightTime = 2f;
@@ -37,7 +37,6 @@ public class NPCPatrol : MonoBehaviour
         if (!agent) agent = GetComponent<NavMeshAgent>();
         if (!eyesTransform) eyesTransform = transform;
 
-        
         if (patrolPathRoot == null || patrolPathRoot.childCount == 0)
         {
             Debug.LogError("PatrolPathRoot пуст — NPC не знает куда идти");
@@ -61,6 +60,7 @@ public class NPCPatrol : MonoBehaviour
             case State.Patrol:
                 PatrolTick();
 
+                
                 if (checkTimer >= spotCooldown && CheckSeePlayer(out Transform player))
                 {
                     checkTimer = 0f;
@@ -78,7 +78,6 @@ public class NPCPatrol : MonoBehaviour
         }
     }
 
-    
     void PatrolTick()
     {
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance + 0.05f)
@@ -93,7 +92,6 @@ public class NPCPatrol : MonoBehaviour
         }
     }
 
-    
     void ChaseTick()
     {
         if (targetPlayer == null)
@@ -102,16 +100,13 @@ public class NPCPatrol : MonoBehaviour
             return;
         }
 
-        
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(targetPlayer.position, out hit, 2f, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(targetPlayer.position, out var hit, 2f, NavMesh.AllAreas))
         {
             agent.isStopped = false;
             agent.SetDestination(hit.position);
         }
 
-      
-        checkTimer += Time.deltaTime;
+
         if (checkTimer >= spotCooldown)
         {
             checkTimer = 0f;
@@ -130,7 +125,6 @@ public class NPCPatrol : MonoBehaviour
         }
     }
 
-    
     void SearchTick()
     {
         agent.isStopped = true;
@@ -141,6 +135,12 @@ public class NPCPatrol : MonoBehaviour
             waitTimer = 0f;
             state = State.Patrol;
             GoTo(points[currentIndex].position);
+        }
+
+        if (checkTimer >= spotCooldown && CheckSeePlayer(out Transform player))
+        {
+            checkTimer = 0f;
+            StartChase(player);
         }
     }
 
@@ -155,6 +155,7 @@ public class NPCPatrol : MonoBehaviour
         state = State.Chase;
         targetPlayer = player;
         lastSeenTimer = 0f;
+        checkTimer = 0f; 
 
         if (responderToActivate)
             responderToActivate.OnAlert();
@@ -165,24 +166,42 @@ public class NPCPatrol : MonoBehaviour
         state = State.Search;
         targetPlayer = null;
         agent.isStopped = true;
+
+        waitTimer = 0f;
+        checkTimer = 0f;
+        lastSeenTimer = 0f;
     }
 
     bool CheckSeePlayer(out Transform playerTransform)
     {
         playerTransform = null;
 
-        Collider[] hits = Physics.OverlapSphere(eyesTransform.position, detectRadius, playerMask);
+        Vector3 eyesPos = eyesTransform.position;
+
+        Collider[] hits = Physics.OverlapSphere(
+            eyesPos,
+            detectRadius,
+            playerMask,
+            QueryTriggerInteraction.Ignore
+        );
+
         foreach (var col in hits)
         {
             if (!col.CompareTag(playerTag)) continue;
 
             Transform p = col.transform;
-            Vector3 dir = (p.position - eyesTransform.position).normalized;
+            Vector3 dir = (p.position - eyesPos).normalized;
             float angle = Vector3.Angle(eyesTransform.forward, dir);
             if (angle > viewAngle * 0.5f) continue;
 
-            float dist = Vector3.Distance(eyesTransform.position, p.position);
-            if (!Physics.Raycast(eyesTransform.position, dir, dist, obstructionMask))
+            float dist = Vector3.Distance(eyesPos, p.position);
+
+            if (!Physics.Raycast(
+                    eyesPos,
+                    dir,
+                    dist,
+                    obstructionMask,
+                    QueryTriggerInteraction.Ignore))
             {
                 playerTransform = p;
                 return true;
@@ -191,7 +210,6 @@ public class NPCPatrol : MonoBehaviour
         return false;
     }
 
-  
     void OnDrawGizmosSelected()
     {
         Transform eyes = eyesTransform ? eyesTransform : transform;

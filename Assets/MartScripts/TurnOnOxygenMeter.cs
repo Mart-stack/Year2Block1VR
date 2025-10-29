@@ -5,17 +5,9 @@ public class TurnOnOxygenMeter : MonoBehaviour
     [SerializeField]
     private GameObject oxygenMeter;
 
-    private breathMeterScript playerDeathScript;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-       // playerDeathScript = GameObject.Find("watch").GetComponent<breathMeterScript>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if (transform.position.z > 38 )
+        if (transform.position.x > 28.5)
         {
             oxygenMeter.SetActive(true);
 
