@@ -8,21 +8,23 @@ public class BreakGlass : MonoBehaviour
     private GameObject unbrokenGlass;
     [SerializeField]
     private GameObject enemyObj;
-    
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.name == "Window")
-    //    {
-    //        unbrokenGlass.SetActive(false);
-    //        brokenGlass.SetActive(true);
-    //    }
-    //}
+    public AudioClip breakGlass;
+    public AudioSource breakGlassSource;
+
+    private void Start()
+    {
+        breakGlassSource = GetComponent<AudioSource>();
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Window"))
         {
+            breakGlassSource.PlayOneShot(breakGlass, 1.0f);
+
+            Debug.Log("entered");
             unbrokenGlass.SetActive(false);
             brokenGlass.SetActive(true);
         }

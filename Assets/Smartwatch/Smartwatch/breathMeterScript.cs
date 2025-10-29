@@ -32,10 +32,13 @@ public class breathMeterScript : MonoBehaviour
     private bool startTimerThree = false;
     public TextMeshProUGUI o2PercentageText;
     public Image coloredCircle;
+    private AudioSource audioSource;
+    public AudioClip lowOxygen;
+
 
     void Start()
     {
-      
+        audioSource = GetComponent<AudioSource>();
         currentOxygen = maxOxygen;
         UpdateWatch();
         StartTimer();
@@ -65,6 +68,13 @@ public class breathMeterScript : MonoBehaviour
         {
             StartCoroutine(EnemyThirdColl());
         }
+
+        if(currentOxygen <= 18)
+        {
+            audioSource.PlayOneShot(lowOxygen);
+        }
+
+        
     }
 
 
@@ -93,7 +103,6 @@ public class breathMeterScript : MonoBehaviour
         gradient.bottomRight = colorText;
 
         o2PercentageText.colorGradient = gradient;
-
        
     }
 
