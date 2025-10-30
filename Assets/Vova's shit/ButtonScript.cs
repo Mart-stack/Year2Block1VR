@@ -14,10 +14,10 @@ public class SimpleReplaceOnClick : MonoBehaviour
     }
 
     // срабатывает, когда на объект кликают (или попадает луч с "Interact" / "Press")
-    private void OnMouseDown()
-    {
-        modelNormal.SetActive(false);
-        modelPressed.SetActive(true);
-        isPressed = true;
-    }
+    private void OnTriggerEnter(Collider other)
+{
+    // если луч или контроллер попал
+    modelNormal.SetActive(false);
+    modelPressed.SetActive(true);
+}
 }

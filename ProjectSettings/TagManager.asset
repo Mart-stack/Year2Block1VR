@@ -7,6 +7,24 @@ TagManager:
   - SamplesInfoPanel
   - Enemy
   - Window
+  - QDSUIBackplateGradient
+  - QDSUISharedThemeColor
+  - QDSUIIcon
+  - QDSUISection
+  - QDSUIBorderlessButton
+  - QDSUIToggleButton
+  - QDSUISecondaryButton
+  - QDSUITextSecondaryColor
+  - QDSUITextInputField
+  - QDSUIPrimaryButton
+  - QDSUIAccentColor
+  - QDSUITextInvertedColor
+  - QDSUITextSecondaryInvertedColor
+  - QDSUIDestructiveButton
+  - QDSUITooltip
+  - QDSUIToggleCheckboxRadio
+  - QDSUIToggleSwitch
+  - QDSUIToggleBorderlessButton
   layers:
   - Default
   - TransparentFX
@@ -15,7 +33,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - floor
   - 
   - 
   - 
