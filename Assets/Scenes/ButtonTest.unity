@@ -8214,6 +8214,11 @@ MonoBehaviour:
   installationRoutineCheckpoint:
     _installationRoutineId: 
     _installationVariants: []
+--- !u!1 &1545929469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 806b302e750b45541a70d0d4748f1ab3, type: 3}
+  m_PrefabInstance: {fileID: 1247421248}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1613086053
 GameObject:
   m_ObjectHideFlags: 0
@@ -8631,6 +8636,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4320a1b444e3a7240bcf72df55dd1735, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1829234387}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4320a1b444e3a7240bcf72df55dd1735, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1829234393}
   m_SourcePrefab: {fileID: 100100000, guid: 4320a1b444e3a7240bcf72df55dd1735, type: 3}
 --- !u!1 &1829234386 stripped
 GameObject:
@@ -8660,6 +8668,20 @@ CapsuleCollider:
   m_Height: 0.3
   m_Direction: 1
   m_Center: {x: 0.03, y: 0.1604847, z: -9.313226e-10}
+--- !u!114 &1829234393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829234386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9737d7dcc44d9d44befd3d103861cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleReplaceOnClick
+  modelNormal: {fileID: 1829234386}
+  modelPressed: {fileID: 1545929469}
 --- !u!1 &1888393538
 GameObject:
   m_ObjectHideFlags: 0
