@@ -71,7 +71,7 @@ public class breathMeterScript : MonoBehaviour
 
         if(currentOxygen <= 18)
         {
-            audioSource.PlayOneShot(lowOxygen);
+            audioSource.PlayOneShot(lowOxygen, 3f);
         }
 
         
