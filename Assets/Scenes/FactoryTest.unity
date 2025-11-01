@@ -21356,6 +21356,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: cea70bb887999be4b93b19614d0e0f4e, type: 3}
     - target: {fileID: 2538365052372174201, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2538365052372174201, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
       propertyPath: maxOxygen
       value: 60
       objectReference: {fileID: 0}
@@ -21388,6 +21392,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 425808602226980109, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1079418074}
+    - targetCorrespondingSourceObject: {fileID: 425808602226980109, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1079418071}
     - targetCorrespondingSourceObject: {fileID: 425808602226980109, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
@@ -21417,7 +21424,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.232
+  m_Volume: 0.127
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -21522,6 +21529,49 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.00024655522, y: 0.00060803525, z: 0.00036489533}
   m_Center: {x: 0.0000063293114, y: -0.000033586926, z: -0.000163199}
+--- !u!114 &1079418072 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 661305506056826770, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
+  m_PrefabInstance: {fileID: 1079418067}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1079418073 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7498315597214509303, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
+  m_PrefabInstance: {fileID: 1079418067}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1079418074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079418068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41df0404a2baa048b37926b000a2b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AdjustedBreathMeter
+  playerLocation: {fileID: 1518815844}
+  watchSec: {fileID: 1611854910}
+  respawnPos: {fileID: 1204447147}
+  checkPoint: {fileID: 139903455}
+  maxOxygen: 60
+  stopTimer: 0
+  o2PercentageText: {fileID: 1079418073}
+  coloredCircle: {fileID: 1079418072}
+  lowOxygen: {fileID: 8300000, guid: cea70bb887999be4b93b19614d0e0f4e, type: 3}
 --- !u!1 &1085498772
 GameObject:
   m_ObjectHideFlags: 0
