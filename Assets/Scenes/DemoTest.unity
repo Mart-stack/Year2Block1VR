@@ -5094,11 +5094,11 @@ Transform:
   m_GameObject: {fileID: 443765291}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 209.1532, y: -69.89987, z: -42.65332}
+  m_LocalPosition: {x: 9.18, y: 30, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 498016675}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &455123194
 PrefabInstance:
@@ -9204,9 +9204,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1392925506}
   - {fileID: 1602833212}
-  - {fileID: 443765292}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &505761606
@@ -20595,11 +20593,11 @@ Transform:
   m_GameObject: {fileID: 1392925505}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 199.86319, y: -68.39987, z: -42.65332}
+  m_LocalPosition: {x: -2.9, y: 30.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 498016675}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1400850606
 BoxCollider:
@@ -24993,7 +24991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425808602226980109, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1054710954718867383, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
       propertyPath: m_LocalScale.x
@@ -25058,6 +25056,10 @@ PrefabInstance:
     - target: {fileID: 2538365052372174201, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
       propertyPath: maxOxygen
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2538365052372174201, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
+      propertyPath: stopTimer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2538365052372174201, guid: cde50b6591d48b340b913c84618d44d1, type: 3}
       propertyPath: checkPoint
@@ -36861,6 +36863,8 @@ SceneRoots:
   - {fileID: 869935322}
   - {fileID: 507995703}
   - {fileID: 498016675}
+  - {fileID: 443765292}
+  - {fileID: 1392925506}
   - {fileID: 329003942}
   - {fileID: 1482603979}
   - {fileID: 287104816}
