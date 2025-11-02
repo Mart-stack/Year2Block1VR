@@ -190,7 +190,7 @@ public class AdjustedBreathMeter : MonoBehaviour
             return;
         }
 
-        while (currentOxygen < 18)
+        while (currentOxygen < 36)
         {
             audioSource.PlayOneShot(lowOxygen, 2.0f); 
             soundCount+= 1;
@@ -201,9 +201,9 @@ public class AdjustedBreathMeter : MonoBehaviour
 
     IEnumerator SoundHeavyBreathing()
     {
-        yield return new WaitForSeconds(9);
+        yield return new WaitForSeconds(8);
         DelayedBreath();
-        yield return new WaitForSeconds(9);
+        yield return new WaitForSeconds(8);
         ExtraDelayedBreath();
     }
 
