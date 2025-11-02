@@ -1258,6 +1258,26 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 991544318136207723, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _acceptColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 991544318136207723, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _acceptColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 991544318136207723, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _acceptColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 991544318136207723, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _rejectColor.b
+      value: 0.18929425
+      objectReference: {fileID: 0}
+    - target: {fileID: 991544318136207723, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _rejectColor.g
+      value: 0.12156862
+      objectReference: {fileID: 0}
     - target: {fileID: 1040568030982467088, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -4358,6 +4378,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5778330719945222928, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _noDestinationTint.b
+      value: 0.047058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778330719945222928, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _noDestinationTint.g
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5778330719945222932, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -6134,6 +6162,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7613568339745452412, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _noDestinationTint.b
+      value: 0.046300888
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613568339745452412, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _noDestinationTint.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613568339745452412, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _noDestinationTint.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7613568339948825342, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -6853,6 +6893,18 @@ PrefabInstance:
     - target: {fileID: 8768900369533148940, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8775515126807469138, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _tint.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8775515126807469138, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _tint.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8775515126807469138, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _tint.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8790590387445845560, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
       propertyPath: m_Layer
@@ -20963,7 +21015,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.537
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -21105,11 +21157,12 @@ MonoBehaviour:
   playerLocation: {fileID: 1518815844}
   respawnPos: {fileID: 1204447147}
   checkPoint: {fileID: 139903455}
-  maxOxygen: 60
+  maxOxygen: 120
   stopTimer: 0
   o2PercentageText: {fileID: 1079418073}
   coloredCircle: {fileID: 1079418072}
   lowOxygen: {fileID: 8300000, guid: cea70bb887999be4b93b19614d0e0f4e, type: 3}
+  heavyBreathing: {fileID: 8300000, guid: 27279826784fb2d419ddd85e67203bb0, type: 3}
 --- !u!1 &1085498772
 GameObject:
   m_ObjectHideFlags: 0

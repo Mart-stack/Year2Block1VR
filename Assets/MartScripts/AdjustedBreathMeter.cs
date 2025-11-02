@@ -20,18 +20,20 @@ public class AdjustedBreathMeter : MonoBehaviour
 
     //public int playerDeath = 0;
 
-    public float maxOxygen = 60f;
+    public float maxOxygen = 120f;
     private float currentOxygen;
     public bool stopTimer = false;
 
     private int colCount = 0;
     private int soundCount = 0;
+    private int delayCount = 0;
     private bool startNextTimer = false;
     private bool startTimerThree = false;
     public TextMeshProUGUI o2PercentageText;
     public Image coloredCircle;
     private AudioSource audioSource;
     public AudioClip lowOxygen;
+    public AudioClip heavyBreathing;
 
     void Start()
     {
@@ -39,7 +41,6 @@ public class AdjustedBreathMeter : MonoBehaviour
         currentOxygen = maxOxygen;
         UpdateWatch();
         StartTimer();
-
     }
 
     private void Update()
@@ -66,12 +67,10 @@ public class AdjustedBreathMeter : MonoBehaviour
             StartCoroutine(EnemyThirdColl());
         }
 
-        if (currentOxygen <= 18)
+        if (currentOxygen <= 36)
         {
             SoundLowOxygen();
-            
         }
-
     }
 
     private void StartTimer()
@@ -186,6 +185,8 @@ public class AdjustedBreathMeter : MonoBehaviour
     {
         if (soundCount >= 1)
         {
+            StartCoroutine(SoundHeavyBreathing());
+
             return;
         }
 
@@ -197,6 +198,47 @@ public class AdjustedBreathMeter : MonoBehaviour
         }
 
     }
+
+    IEnumerator SoundHeavyBreathing()
+    {
+        yield return new WaitForSeconds(9);
+        DelayedBreath();
+        yield return new WaitForSeconds(9);
+        ExtraDelayedBreath();
+    }
+
+    private void DelayedBreath()
+    {
+        if (delayCount >= 1)
+        {
+            return;
+        }
+        while (delayCount == 0)
+        {
+            audioSource.PlayOneShot(heavyBreathing, 2.0f);
+            Debug.Log("played");
+            delayCount += 1;
+            break;
+        }
+
+    }
+
+    private void ExtraDelayedBreath()
+    {
+        if (delayCount >= 2)
+        {
+            return;
+        }
+        while (delayCount == 1)
+        {
+            audioSource.PlayOneShot(heavyBreathing, 2.0f);
+            Debug.Log("played");
+            delayCount += 1;
+            break;
+        }
+    }
+
+
 
     private void OnDrawGizmos()
     {
