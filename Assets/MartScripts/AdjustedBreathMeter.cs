@@ -13,8 +13,7 @@ public class AdjustedBreathMeter : MonoBehaviour
     [SerializeField]
     private GameObject playerLocation;
 
-    [SerializeField]
-    private GameObject watchSec;
+    
 
     public GameObject respawnPos;
     public GameObject checkPoint;
@@ -26,6 +25,7 @@ public class AdjustedBreathMeter : MonoBehaviour
     public bool stopTimer = false;
 
     private int colCount = 0;
+    private int soundCount = 0;
     private bool startNextTimer = false;
     private bool startTimerThree = false;
     public TextMeshProUGUI o2PercentageText;
@@ -68,7 +68,8 @@ public class AdjustedBreathMeter : MonoBehaviour
 
         if (currentOxygen <= 18)
         {
-            audioSource.PlayOneShot(lowOxygen, 1.0f);
+            SoundLowOxygen();
+            
         }
 
     }
@@ -77,6 +78,7 @@ public class AdjustedBreathMeter : MonoBehaviour
     {
         StartCoroutine(StartBreathHold());
     }
+
 
     private void UpdateWatch()
     {
@@ -151,6 +153,7 @@ public class AdjustedBreathMeter : MonoBehaviour
             {
                 currentOxygen = currentOxygen - 20f;
                 Debug.Log("collided");
+                
                 colCount += 1;
             }
         }
@@ -179,6 +182,22 @@ public class AdjustedBreathMeter : MonoBehaviour
 
     }
 
+    private void SoundLowOxygen()
+    {
+        if (soundCount >= 1)
+        {
+            return;
+        }
+
+        while (currentOxygen < 18)
+        {
+            audioSource.PlayOneShot(lowOxygen, 2.0f); 
+            soundCount+= 1;
+            break;
+        }
+
+    }
+
     private void OnDrawGizmos()
     {
         // Draw wire sphere outline.
@@ -203,8 +222,6 @@ public class AdjustedBreathMeter : MonoBehaviour
                 stopTimer = true;
 
                 SceneManager.LoadScene(0);
-
-                watchSec.SetActive(true);
 
                 Destroy(gameObject);
 

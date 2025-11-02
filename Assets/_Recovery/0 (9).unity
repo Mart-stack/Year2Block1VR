@@ -21105,7 +21105,7 @@ MonoBehaviour:
   playerLocation: {fileID: 1518815844}
   respawnPos: {fileID: 1204447147}
   checkPoint: {fileID: 139903455}
-  maxOxygen: 60
+  maxOxygen: 20
   stopTimer: 0
   o2PercentageText: {fileID: 1079418073}
   coloredCircle: {fileID: 1079418072}
