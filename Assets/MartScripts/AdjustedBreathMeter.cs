@@ -113,7 +113,7 @@ public class AdjustedBreathMeter : MonoBehaviour
         {
             if (hitCollider.CompareTag("Enemy"))
             {
-                currentOxygen = currentOxygen - 20f;
+                currentOxygen = currentOxygen - 40f;
                 Debug.Log("collided");
                 colCount += 1;
             }
@@ -150,7 +150,7 @@ public class AdjustedBreathMeter : MonoBehaviour
         {
             if (hitCollider.CompareTag("Enemy"))
             {
-                currentOxygen = currentOxygen - 20f;
+                currentOxygen = currentOxygen - 40f;
                 Debug.Log("collided");
                 
                 colCount += 1;
@@ -172,7 +172,7 @@ public class AdjustedBreathMeter : MonoBehaviour
         {
             if (hitCollider.CompareTag("Enemy"))
             {
-                currentOxygen = currentOxygen - 20f;
+                currentOxygen = currentOxygen - 40f;
                 Debug.Log("collided");
                 colCount += 1;
             }
