@@ -17,6 +17,7 @@ public class AdjustedBreathMeter : MonoBehaviour
 
     public GameObject respawnPos;
     public GameObject checkPoint;
+   
 
     //public int playerDeath = 0;
 
@@ -45,7 +46,7 @@ public class AdjustedBreathMeter : MonoBehaviour
 
     private void Update()
     {
-        if (playerLocation.transform.position.x >= checkPoint.transform.position.x)
+        if (playerLocation.transform.position.x >= checkPoint.transform.position.x && playerLocation.transform.position.z <= 0.9 && playerLocation.transform.position.z >= -4.5)
         {
             Debug.Log("worked");
             SceneManager.LoadScene(0);
